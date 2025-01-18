@@ -1,11 +1,9 @@
 { config, pkgs, ... }:
 
 {
-	networking = if (config.aq.portable) then {
-		networkmanager.enable = true;
-		firewall.enable = false;
-	} else {
+	networking = {
 		networkmanager.enable = false;
+		useDHCP = false;
 		firewall.enable = false;
 		interfaces = {
 			eno1 = {
@@ -16,6 +14,6 @@
 			};
 		};
 		defaultGateway  = "192.168.0.1";
-		nameservers  = [ "8.8.8.8" "8.8.4.4" ];
+		nameservers  = [ "1.1.1.1" "8.8.8.8" ];
 	};
 }

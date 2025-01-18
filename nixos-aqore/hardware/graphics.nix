@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 
 {
-	hardware.opengl.enable = true;
-	hardware.opengl.driSupport = true;
-	hardware.opengl.driSupport32Bit = true;
+	hardware.graphics.enable = true;
+	hardware.graphics.enable32Bit = true;
+	hardware.amdgpu.opencl.enable = true;
 	services.displayManager.sddm.enable = true;
 	services.displayManager.sddm.wayland.enable = true;
 	services.desktopManager.plasma6.enable = true;

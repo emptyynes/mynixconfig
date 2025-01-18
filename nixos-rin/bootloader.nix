@@ -9,11 +9,12 @@
 				efiSysMountPoint = "/boot/efi";
 			};
 			grub = {
-				efiSupport = true;
+				enable = true;
 				device = "nodev";
+				efiSupport = true;
 				configurationLimit = 10;
 				gfxmodeEfi = "1920x1080";
-				useOSProber = true;
+				forceInstall = true;
 				extraEntries = ''
 					menuentry "UEFI Firmware Setup" {
 						fwsetup
