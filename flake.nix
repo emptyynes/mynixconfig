@@ -3,10 +3,10 @@
 
 	inputs = {
 		nixpkgs.url = "nixpkgs/nixos-24.11";
-		emptypkgs.url = "github:emptyynes/NER";
+		# emptypkgs.url = "github:emptyynes/NER";
 	};
 
-	outputs = { self, nixpkgs, emptypkgs, ... }:
+	outputs = { self, nixpkgs, ... }:
 	let
 		lib = nixpkgs.lib;
 		linux64 = "x86_64-linux";

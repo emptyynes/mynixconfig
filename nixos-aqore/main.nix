@@ -1,4 +1,4 @@
-{ config, pkgs, emptypkgs, ... }:
+{ config, pkgs, ... }:
 
 {
 	imports = [
@@ -6,6 +6,7 @@
 		./users.nix
 		./packages.nix
 		./services/ssh.nix
+		./services/syncthing-service.nix
 		./hardware/hardware-configuration.nix
 		./hardware/audio.nix
 		./hardware/graphics.nix
@@ -18,4 +19,6 @@
 	system.stateVersion = "24.11";
 
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+	services.logmein-hamachi.enable = true;
 }

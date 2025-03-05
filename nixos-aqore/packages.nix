@@ -7,42 +7,43 @@
 		"olm-3.2.16"
 	];
 	environment.systemPackages = with pkgs; [
-		# EMPTYY
-		# emptypkgs.hello
-
-		# desktop
-		firefox
-		(vivaldi.overrideAttrs
-			(oldAttrs: {
-				dontWrapQtApps = false;
-				dontPatchELF = true;
-				nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [pkgs.kdePackages.wrapQtAppsHook];
-			})
-		)
-		wavebox
-		gimp
-		telegram-desktop
-		kotatogram-desktop
-		sublime4
-		obs-studio
+		### desktop
+		# browsers and network
+		ungoogled-chromium
+		floorp
 		qbittorrent
+		nekoray
+		nicotine-plus
+		# media
+		gimp
+		kdenlive
+		celluloid
+		obs-studio
 		flameshot
 		qpwgraph
-		nekoray
-		corectrl
 		vlc
-		dino
+		# social
+		telegram-desktop
+		fluffychat
 		gajim
 		mumble
+		# programming
+		sublime4
 		android-studio
-		fluffychat
-		lutris-unwrapped
-		temurin-jre-bin
+		jetbrains.idea-community-bin
+		# hardware
+		corectrl
+		# games
 		prismlauncher
+		haguichi
+		logmein-hamachi
+		# other
+		appimage-run
 
-
-		# terminal
+		### terminal
+		# shell
 		fish
+		# utils
 		bat
 		zoxide
 		git
@@ -58,10 +59,10 @@
 		neofetch
 		python312Packages.fonttools
 		nodemon
+		firebase-tools
 		
 		# libs
 		ffmpeg
-		vivaldi-ffmpeg-codecs
 		vulkan-tools
 
 		# programming
@@ -93,9 +94,9 @@
 		localNetworkGameTransfers.openFirewall = true;
 	};
 
-	virtualisation.virtualbox.host.enable = true;
-	virtualisation.virtualbox.host.enableExtensionPack = true;
-	users.extraGroups.vboxusers.members = [ "almiriqi" ];
+	# virtualisation.virtualbox.host.enable = true;
+	# virtualisation.virtualbox.host.enableExtensionPack = true;
+	# users.extraGroups.vboxusers.members = [ "almiriqi" ];
 	
 	nixpkgs.config.allowUnfree = true;
 

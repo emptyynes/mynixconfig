@@ -8,6 +8,8 @@
 		btop
 		ncdu
 		nvtopPackages.amd
+		temurin-bin
+		screen
 	];
 	
 	nixpkgs.config.allowUnfree = true;
