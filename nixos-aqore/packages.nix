@@ -9,34 +9,27 @@
 	environment.systemPackages = with pkgs; [
 		### desktop
 		# browsers and network
-		ungoogled-chromium
-		floorp
+		firefox
 		qbittorrent
-		nekoray
 		nicotine-plus
+		chromium
+		amnezia-vpn
+		obsidian
 		# media
 		gimp
-		kdenlive
-		celluloid
-		obs-studio
-		flameshot
+		krita
 		qpwgraph
 		vlc
+		jellyfin-media-player
+		audacity
 		# social
 		telegram-desktop
-		fluffychat
-		gajim
-		mumble
 		# programming
 		sublime4
-		android-studio
-		jetbrains.idea-community-bin
 		# hardware
 		corectrl
 		# games
 		prismlauncher
-		haguichi
-		logmein-hamachi
 		# other
 		appimage-run
 
@@ -44,6 +37,7 @@
 		# shell
 		fish
 		# utils
+		screen
 		bat
 		zoxide
 		git
@@ -75,16 +69,38 @@
 		cmake
 		gcc
 
-		# fonts
+		wineWowPackages.stable
+		wineWowPackages.waylandFull
+		xwayland-satellite
+
+		pciutils
+
+		# other
+		kdePackages.wallpaper-engine-plugin
+		kdePackages.qtwebengine
+		kdePackages.xwaylandvideobridge
+		(pkgs.libsForQt5.callPackage ./hardware/deco01-v3-driver.nix {})
+		cava
+		(python3.withPackages (ps: with ps; [ websockets ]))
+	] ++ (with pkgs.rocmPackages; [
+		# rocm
+		amdsmi
+		aotriton
+		rpp
+		clr
+		hipcc
+		rocm-smi
+		half
+		hip-common
+		rocm-runtime
+		miopen
+	]);
+
+	fonts.packages = with pkgs; [
 		noto-fonts
 		noto-fonts-cjk-sans
 		noto-fonts-emoji
-		fira-code
-		fira-code-symbols
-		nerdfonts
-
-		wineWowPackages.stable
-		wineWowPackages.waylandFull
+		nerd-fonts.fira-code
 	];
 
 	programs.steam = {
@@ -94,13 +110,7 @@
 		localNetworkGameTransfers.openFirewall = true;
 	};
 
-	# virtualisation.virtualbox.host.enable = true;
-	# virtualisation.virtualbox.host.enableExtensionPack = true;
-	# users.extraGroups.vboxusers.members = [ "almiriqi" ];
-	
 	nixpkgs.config.allowUnfree = true;
 
-	programs.corectrl.gpuOverclock.enable = true;
-	# programs.corectrl.gpuOverclock.ppfeaturemask = true;
-	# programs.corectrl.gpuOverclock.ppfeaturemask = "0xffffffff";
+	programs.amnezia-vpn.enable = true;
 }

@@ -6,11 +6,11 @@
 		loader = {
 			efi = {
 				canTouchEfiVariables = true;
-				efiSysMountPoint = "/boot";
+				efiSysMountPoint = "/boot/efi";
 			};
 			grub = {
 				enable = true;
-				device = "/dev/sda1";
+				device = "nodev";
 				efiSupport = true;
 				configurationLimit = 10;
 				gfxmodeEfi = "1920x1080";

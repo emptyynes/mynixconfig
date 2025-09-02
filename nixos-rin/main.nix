@@ -25,4 +25,6 @@ in
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 	programs.an-anime-game-launcher.enable = true;
+
+	nixpkgs.config.allowUnfree = true;
 }

@@ -10,9 +10,19 @@
 
 	services.desktopManager.plasma6.enable = true;
 
-	programs.wayfire.enable = true;
-	programs.wayfire.xwayland.enable = true;
+	# programs.niri.enable = true;
 
 	programs.hyprland.enable = true;
 	programs.hyprland.xwayland.enable = true;
+
+	systemd.tmpfiles.rules = [
+		"L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+    ];
+
+    hardware.graphics.extraPackages = with pkgs; [
+    	rocmPackages.clr.icd
+	];
+
+	hardware.amdgpu.overdrive.enable = true;
+	hardware.amdgpu.overdrive.ppfeaturemask = "0xffffffff";
 }

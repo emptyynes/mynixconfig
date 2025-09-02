@@ -15,11 +15,19 @@
 		};
 		defaultGateway  = "192.168.0.1";
 		nameservers  = [
-			"109.174.1.58"
-			"82.202.136.100"
-			"1.1.1.1"
+			#"1.1.1.1"
 			"8.8.8.8"
 		];
 		interfaces.eno1.wakeOnLan.enable = true;
+	};
+	services.yggdrasil = {
+		enable = true;
+		persistentKeys = true;
+		settings = {
+			Peers = [
+				"tls://blnt-cult.ru:6666"
+			];
+			IfName = "ygg0";
+		};
 	};
 }
